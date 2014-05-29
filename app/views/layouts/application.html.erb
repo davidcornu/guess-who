@@ -6,8 +6,81 @@
   <%= javascript_include_tag "application" %>
   <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			a:link {color: #406c40; text-decoration:none;}
+			a:visited {color: #406c40; text-decoration:none;}
+			a:hover {color: #87E687;}
+			a:active {color: #406c40; text-decoration:none;}
+	
+			body{
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-color: #212121;
+			}
+
+			.logo{
+				padding-right: 10%;
+ 				font-size: 2.1em;
+ 				font-family: arial;
+ 				font-weight: bold;
+ 				margin-left: 25px;
+ 				color: #406c40;
+			}
+
+			.statement{
+				font-family: 'Cardo', serif;
+				padding-top: 30%;
+				font-size: 22px;
+				width: 250px;
+				text-align:left;
+				padding-bottom:10px;
+				color: #FF7373;
+
+			}
+
+			.contribute{
+				float: right;
+    			display: inline-block;
+   				margin-right: 25px;
+   				font-size: 2.4em;
+ 				font-family: arial;
+ 				font-weight: bold;
+ 				margin-left: 25px;
+ 				color: #406c40;
+			}
+
+			.person{
+				font-family: 'Josefin Sans', sans-serif;
+				font-size: 12px;
+				letter-spacing: 3px;
+				width: 250px;
+				text-align: right;
+				padding-bottom: 15px;
+				color: #87E687;
+			}
+
+			.gender{
+
+			}
+
+			.back{
+				font-size: 4.1em;
+ 				font-family: arial;
+ 				font-weight: bold;
+ 				color: #406c40;
+			}
+
+			.story{
+				width: 250px;
+				height: 50px;
+			}
+			</style>
 </head>
 <body>
+<div class = 'logo'> <%= link_to "LOGO", root_path %></div> 
+<div class = 'contribute'> <%= link_to "+", new_story_path %></div>
 
 <%= yield %>
 

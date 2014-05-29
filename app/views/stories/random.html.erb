@@ -1,4 +1,5 @@
-<h1><%= @story.body %></h1>
+<center>
+<div class="statement"><%= @story.body %></div>
 
 <%= form_for [@story, @vote] do |f| %>
   <%= f.select :gender, Story::GENDERS %>
@@ -7,3 +8,5 @@
 
 <%= link_to "See another story", root_path %>
 <%= link_to "Create your own story", new_story_path %>
+
+</center>

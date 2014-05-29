@@ -1,6 +1,6 @@
-<h1><%= @story.body %></h1>
+<center><div class="statement"><%= @story.body %></div>
 
-<p>This story was submitted by a <%= @story.age %> year old <%= @story.gender %>.</p>
+<div class="person">This story was submitted by a <%= @story.age %> year old <%= @story.gender %>.</div>
 
 <canvas id="vote-chart" width="200" height="200"></canvas>
 
@@ -24,3 +24,5 @@
   <%= link_to "See another story", root_path %>
   <%= link_to "Create your own story", new_story_path %>
 </div>
+
+</center>
