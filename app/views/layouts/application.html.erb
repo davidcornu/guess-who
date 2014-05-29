@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GuessWho</title>
+  <title>Guess Qui?</title>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
@@ -41,10 +41,9 @@
 			.contribute{
 				float: right;
     			display: inline-block;
-   				margin-right: 25px;	
+   				margin-right: 25px;
  				margin-left: 25px;
  				padding-top:3%;
- 		
 
 			}
 
@@ -79,14 +78,18 @@
 				width: 250px;
 				height: 50px;
 			}
-
 			</style>
 </head>
 <body>
-<a class='logo' href='/'><%= image_tag("logo_guesswho.png")%></a>
-<a class='contribute' href='/stories/new'><%= image_tag("create_guesswho.png") %></a>
+  <%= link_to root_path, :class => 'logo' do %>
+    <%= image_tag("logo_guesswho.png")%>
+  <% end %>
 
-<%= yield %>
+  <%= link_to new_story_path, :class => 'contribute' do %>
+    <%= image_tag("create_guesswho.png") %>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>
