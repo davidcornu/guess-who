@@ -2,23 +2,27 @@
 
 <p>This story was submitted by a <%= @story.age %> year old <%= @story.gender %>.</p>
 
-<canvas id="vote-chart" width="200" height="200"></canvas>
+<% if @story.votes.any? %>
+  <canvas id="vote-chart" width="200" height="200"></canvas>
 
-<script>
-  (function(){
-    "use strict";
+  <script>
+    (function(){
+      "use strict";
 
-    var tally = <%= raw JSON.dump(@story.vote_counts) %>;
-    var ctx   = document.getElementById('vote-chart').getContext('2d');
+      var tally = <%= raw JSON.dump(@story.vote_counts) %>;
+      var ctx   = document.getElementById('vote-chart').getContext('2d');
 
-    var data  = [
-      {value: tally['male'],   color: '#79CDCD'},
-      {value: tally['female'], color: '#00ff00'}
-    ];
+      var data  = [
+        {value: tally['male'],   color: '#79CDCD'},
+        {value: tally['female'], color: '#00ff00'}
+      ];
 
-    var chart = new Chart(ctx).Pie(data, {});
-  })();
-</script>
+      var chart = new Chart(ctx).Pie(data, {});
+    })();
+  </script>
+<% else %>
+  <p>No votes yet :(</p>
+<% end %>
 
 <div>
   <%= link_to "See another story", root_path %>
