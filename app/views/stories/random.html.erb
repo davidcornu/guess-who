@@ -8,20 +8,23 @@
 	</div>
 
   <%= form_for [@story, @vote] do |f| %>
-    <% Story::GENDERS.each do |gender| %>
-      <%= f.button gender.capitalize, :name => "vote[gender]", :value => gender, :class => 'vote-button' %>
-    <% end %>
+    <div>
+      <% Story::GENDERS.each do |gender| %>
+        <%= f.button :name => "vote[gender]", :value => gender, :class => 'vote-button'  do %>
+          <%= image_tag "btn-gender-#{gender}-normal@2x~iphone.png" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= image_tag "gender-lime@2x~iphone.png" %>
+    </div>
   <% end %>
 
-  <br><br>
-  <%= image_tag "gender-lime@2x~iphone.png" %>
-  <br><br>
-
-  <div>
-  <%= link_to root_path do %>
-  <%= image_tag "btn-next-normal@2x~iphone.png" %>
+  <div style="margin-top: 40px;">
+    <%= link_to root_path do %>
+      <%= image_tag "btn-next-normal@2x~iphone.png" %>
     <% end %>
-</div>
+  </div>
 <% else %>
   <p>No stories yet :(</p>
 <% end %>

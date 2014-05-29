@@ -2,8 +2,8 @@ class Story < ActiveRecord::Base
   has_many :votes
 
   GENDERS = [
-    'neutral',
     'female',
+    'neutral',
     'male'
   ]
 
