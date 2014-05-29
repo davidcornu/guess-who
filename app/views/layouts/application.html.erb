@@ -41,7 +41,8 @@
     			display: inline-block;
    				margin-right: 25px;	
  				margin-left: 25px;
- 				padding-top:0%;
+ 				padding-top:3%;
+ 		
 
 			}
 
@@ -73,8 +74,8 @@
 			</style>
 </head>
 <body>
-<div class = 'logo'> <a href='/'><%= image_tag("logo_guesswho.png")%></a></div> 
-<div class = 'contribute'><a href='/stories/new'><%= image_tag("create_guesswho.png") %></a></div>
+<a class='logo' href='/'><%= image_tag("logo_guesswho.png")%></a>
+<a class='contribute' href='/stories/new'><%= image_tag("create_guesswho.png") %></a>
 
 <%= yield %>
 
