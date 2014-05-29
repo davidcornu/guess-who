@@ -1,13 +1,11 @@
-
 <center>
 
 <% if @story %>
 <div class="statement"><%= @story.body %></div>
 
-
   <%= form_for [@story, @vote] do |f| %>
     <%= f.select :gender, Story::GENDERS.map {|g| [g.capitalize, g] } %>
-    <%= f.submit %>
+    <%= f.submit "Vote" %>
   <% end %>
   <%= link_to "See another story", root_path %>
 <% else %>
