@@ -5,7 +5,7 @@
 
   <%= form_for [@story, @vote] do |f| %>
     <% Story::GENDERS.each do |gender| %>
-      <%= f.button gender.capitalize, :name => "vote[gender]", :value => gender %>
+      <%= f.button gender.capitalize, :name => "vote[gender]", :value => gender, :class => 'vote-button' %>
     <% end %>
   <% end %>
 
