@@ -2,7 +2,7 @@
   <h1><%= @story.body %></h1>
 
   <%= form_for [@story, @vote] do |f| %>
-    <%= f.select :gender, Story::GENDERS %>
+    <%= f.select :gender, Story::GENDERS.map {|g| [g.capitalize, g] } %>
     <%= f.submit %>
   <% end %>
   <%= link_to "See another story", root_path %>
