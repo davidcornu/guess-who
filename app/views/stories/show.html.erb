@@ -1,6 +1,13 @@
 <h1><%= @story.body %></h1>
 
-<p>This story was submitted by a <%= @story.age %> year old <%= @story.gender %>.</p>
+<p>
+  This story was submitted by a <%= @story.age %> year old
+  <% if @story.gender == 'neutral' %>
+    gender-neutral person
+  <% else %>
+    <%= @story.gender %>
+  <% end %>
+</p>
 
 <% if @story.votes.any? %>
   <canvas id="vote-chart" width="200" height="200"></canvas>
@@ -13,8 +20,9 @@
       var ctx   = document.getElementById('vote-chart').getContext('2d');
 
       var data  = [
-        {value: tally['male'],   color: '#79CDCD'},
-        {value: tally['female'], color: '#00ff00'}
+        {value: tally['male'],    color: 'blue'},
+        {value: tally['female'],  color: 'green'},
+        {value: tally['neutral'], color: 'orange'}
       ];
 
       var chart = new Chart(ctx).Pie(data, {});
