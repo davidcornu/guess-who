@@ -13,7 +13,7 @@
 			a:visited {color: #406c40; text-decoration:none;}
 			a:hover {color: #87E687;}
 			a:active {color: #406c40; text-decoration:none;}
-	
+
 			body{
 				background-size: cover;
 				background-repeat: no-repeat;
@@ -39,10 +39,9 @@
 			.contribute{
 				float: right;
     			display: inline-block;
-   				margin-right: 25px;	
+   				margin-right: 25px;
  				margin-left: 25px;
  				padding-top:3%;
- 		
 
 			}
 
@@ -79,10 +78,15 @@
 			</style>
 </head>
 <body>
-<a class='logo' href='/'><%= image_tag("logo_guesswho.png")%></a>
-<a class='contribute' href='/stories/new'><%= image_tag("create_guesswho.png") %></a>
+  <%= link_to root_path, :class => 'logo' do %>
+    <%= image_tag("logo_guesswho.png")%>
+  <% end %>
 
-<%= yield %>
+  <%= link_to new_story_path, :class => 'contribute' do %>
+    <%= image_tag("create_guesswho.png") %>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>
