@@ -26,6 +26,6 @@ ActiveRecord::Schema.define(version: 20140529133456) do
     t.string  "gender",   null: false
   end
 
-  add_index "votes", ["story_id"], name: "index_votes_on_story_id", using: :btree
+  add_index "votes", ["story_id"], name: "index_votes_on_story_id"
 
 end
