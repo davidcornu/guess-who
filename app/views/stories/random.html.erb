@@ -12,8 +12,12 @@
       <%= f.button gender.capitalize, :name => "vote[gender]", :value => gender, :class => 'vote-button' %>
     <% end %>
   <% end %>
-
-  <%= link_to "See another story", root_path %>
+<BR><BR>
+  <div>
+  <%= link_to root_path do %>
+  <%= image_tag "btn-next-normal@2x~iphone.png" %>
+    <% end %>
+</div>
 <% else %>
   <p>No stories yet :(</p>
 <% end %>
