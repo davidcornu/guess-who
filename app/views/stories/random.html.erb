@@ -1,7 +1,11 @@
 <center>
 
 <% if @story %>
-  <div class="statement"><%= @story.body %></div>
+	<div class="statement">
+		<font class="quotez">“</font>
+		<%= @story.body %>
+		<font class="quotez">”</font>
+	</div>
 
   <%= form_for [@story, @vote] do |f| %>
     <% Story::GENDERS.each do |gender| %>
