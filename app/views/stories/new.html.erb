@@ -1,28 +1,31 @@
-<center><%= form_for @story do |t| %>
-  <% if @story.errors.any? %>
-    <ul>
-      <% @story.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+<center>
+  <%= form_for @story do |f| %>
+    <% if @story.errors.any? %>
+      <ul>
+        <% @story.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class = "statement"> share your story
+      <div>
+        <%= f.text_area :body, placeholder: "Your story" %>
+      </div>
+
+      <div>
+        <%= f.label :age %>
+        <%= f.number_field :age %>
+      </div>
+
+      <div>
+        <%= f.label :gender %>
+        <%= f.select :gender, Story::GENDERS.map { |g| [g.capitalize, g] } %>
+      </div>
+
+      <div>
+        <%= f.submit %>
+      </div>
+    </div>
   <% end %>
-
-  <div class = "statement"> share your story
-   <div>
-    <%= t.text_area :body, placeholder: "Your story" %>
-  </div>
-
-  <div>
-    <%= t.label :age %>
-    <%= t.number_field :age %>
-  </div>
-
-  <div>
-    <%= t.label :gender %>
-    <%= t.select :gender, Story::GENDERS %>
-  </div>
-<BR>
-  <%= t.submit %>
-</div>
-<% end %>
 </center>
