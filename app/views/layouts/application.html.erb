@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Guess Qui?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
@@ -98,16 +99,28 @@
         font-family: 'Josefin Sans', sans-serif;
         font-size: 12px;
       }
+
+      .cf:before,
+      .cf:after {
+          content: " ";
+          display: table;
+      }
+      .cf:after { clear: both; }
+      .cf { *zoom: 1; }
 			</style>
 </head>
 <body>
-  <%= link_to root_path, :class => 'logo' do %>
-    <%= image_tag("logo-guess-qui-normal@2x~iphone.png")%>
-  <% end %>
+  <div class='header'>
+    <%= link_to root_path, :class => 'logo' do %>
+      <%= image_tag("logo-guess-qui-normal@2x~iphone.png")%>
+    <% end %>
 
     <%= link_to new_story_path, :class => 'contribute' do %>
-    <%= image_tag "create_guesswho.png", :mouseover => "/images/logopressed_guesswho.png" %>
-  <% end %>
+      <%= image_tag "create_guesswho.png", :mouseover => "/images/logopressed_guesswho.png" %>
+    <% end %>
+
+    <div class='cf'></div>
+  </div>
 
   <%= yield %>
 
