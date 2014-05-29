@@ -1,15 +1,26 @@
 <h1><%= @story.body %></h1>
 
-This story was submitted by a <%= @story.age %> year old <%= @story.gender %>.
+<p>This story was submitted by a <%= @story.age %> year old <%= @story.gender %>.</p>
 
-<table>
-  <% @story.vote_counts.each do |gender, count| %>
-    <tr>
-      <td><%= gender.capitalize %></td>
-      <td><%= count %></td>
-    </tr>
-  <% end %>
-</table>
+<canvas id="vote-chart" width="200" height="200"></canvas>
 
-<%= link_to "See another story", root_path %>
-<%= link_to "Create your own story", new_story_path %>
+<script>
+  (function(){
+    "use strict";
+
+    var tally = <%= raw JSON.dump(@story.vote_counts) %>;
+    var ctx   = document.getElementById('vote-chart').getContext('2d');
+
+    var data  = [
+      {value: tally['male'],   color: '#79CDCD'},
+      {value: tally['female'], color: '#00ff00'}
+    ];
+
+    var chart = new Chart(ctx).Pie(data, {});
+  })();
+</script>
+
+<div>
+  <%= link_to "See another story", root_path %>
+  <%= link_to "Create your own story", new_story_path %>
+</div>
