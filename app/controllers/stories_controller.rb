@@ -18,8 +18,8 @@ class StoriesController < ApplicationController
   end
 
   def random
-    @story = Story.order("RANDOM()").first
-    @vote = @story ? @story.votes.build : nil
+    @story = Story.order(id: :asc).offset(rand(Story.count)).first
+    @vote  = @story ? @story.votes.build : nil
   end
 
   private
