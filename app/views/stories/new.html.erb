@@ -1,0 +1,25 @@
+<%= form_for @story do |t| %>
+  <% if @story.errors.any? %>
+    <ul>
+      <% @story.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= t.text_area :body, placeholder: "Your story" %>
+  </div>
+
+  <div>
+    <%= t.label :age %>
+    <%= t.number_field :age %>
+  </div>
+
+  <div>
+    <%= t.label :gender %>
+    <%= t.select :gender, Story::GENDERS %>
+  </div>
+
+  <%= t.submit %>
+<% end %>
