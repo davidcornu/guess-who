@@ -19,7 +19,7 @@ class StoriesController < ApplicationController
 
   def random
     @story = Story.order("RANDOM()").first
-    @vote = @story.votes.build
+    @vote = @story ? @story.votes.build : nil
   end
 
   private
