@@ -1,7 +1,11 @@
 class Story < ActiveRecord::Base
   has_many :votes
 
-  GENDERS = ['male', 'female']
+  GENDERS = [
+    'neutral',
+    'female',
+    'male'
+  ]
 
   validates_presence_of :body, :age, :gender
   validates_inclusion_of :gender, in: GENDERS

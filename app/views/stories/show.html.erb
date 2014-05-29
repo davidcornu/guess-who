@@ -1,24 +1,49 @@
 <center><div class="statement"><%= @story.body %></div>
 
-<div class="person">This story was submitted by a <%= @story.age %> year old <%= @story.gender %>.</div>
 
-<canvas id="vote-chart" width="200" height="200"></canvas>
+<div class="person">
+  This story was submitted by a <%= @story.age %> year old
+  <% if @story.gender == 'neutral' %>
+    gender-neutral person
+  <% else %>
+    <%= @story.gender %>
+  <% end %>
+</div>
 
-<script>
-  (function(){
-    "use strict";
 
-    var tally = <%= raw JSON.dump(@story.vote_counts) %>;
-    var ctx   = document.getElementById('vote-chart').getContext('2d');
+<% if @story.votes.any? %>
+  <canvas id="chart" width="200" height="200"></canvas>
 
-    var data  = [
-      {value: tally['male'],   color: '#79CDCD'},
-      {value: tally['female'], color: '#00ff00'}
-    ];
+  <script>
+    (function(){
+      "use strict";
 
-    var chart = new Chart(ctx).Pie(data, {});
-  })();
-</script>
+      var tally  = <%= raw JSON.dump(@story.vote_counts) %>;
+      var colors = <%= raw JSON.dump(chart_colors) %>;
+      var ctx    = document.getElementById('chart').getContext('2d');
+
+      var data = [
+        {value: tally['male'],    color: colors['male']},
+        {value: tally['female'],  color: colors['female']},
+        {value: tally['neutral'], color: colors['neutral']}
+      ];
+
+      var chart = new Chart(ctx).Pie(data, {});
+    })();
+  </script>
+
+  <table id="chart-legend">
+    <% @story.vote_counts.each do |gender, count| %>
+      <tr>
+        <td style="background-color: <%= chart_colors[gender] %>">&nbsp;</td>
+        <td><%= gender.capitalize %></td>
+        <td><%= count %>
+      </td>
+    <% end %>
+  </table>
+<% else %>
+  <p>No votes yet :(</p>
+<% end %>
 
 <div>
   <%= link_to "See another story", root_path %>
