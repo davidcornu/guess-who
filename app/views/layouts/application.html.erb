@@ -21,10 +21,6 @@
 			}
 
 			.logo{
-				padding-right: 10%;
- 				font-size: 2.1em;
- 				font-family: arial;
- 				font-weight: bold;
  				margin-left: 25px;
  				color: #406c40;
 			}
@@ -43,12 +39,10 @@
 			.contribute{
 				float: right;
     			display: inline-block;
-   				margin-right: 25px;
-   				font-size: 2.4em;
- 				font-family: arial;
- 				font-weight: bold;
+   				margin-right: 25px;	
  				margin-left: 25px;
- 				color: #406c40;
+ 				padding-top:0%;
+
 			}
 
 			.person{
@@ -79,8 +73,8 @@
 			</style>
 </head>
 <body>
-<div class = 'logo'> <%= link_to "LOGO", root_path %></div> 
-<div class = 'contribute'> <%= link_to "+", new_story_path %></div>
+<div class = 'logo'> <a href='/'><%= image_tag("logo_guesswho.png")%></a></div> 
+<div class = 'contribute'><a href='/stories/new'><%= image_tag("create_guesswho.png") %></a></div>
 
 <%= yield %>
 
