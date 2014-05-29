@@ -45,6 +45,7 @@
    				margin-right: 25px;
  				margin-left: 25px;
  				padding-top:3%;
+ 				background-image: 'logo_guesswho.png';
 
 			}
 
@@ -80,6 +81,16 @@
 				width: 250px;
 				height: 50px;
 			}
+
+			.share{
+				font-family: 'Lobster', cursive;
+				font-size: 30px;
+				padding-bottom: 3px;
+			}
+
+			.inputz{
+				font-size: 22px;
+			}
 			</style>
 </head>
 <body>
@@ -87,8 +98,9 @@
     <%= image_tag("logo_guesswho.png")%>
   <% end %>
 
-  <%= link_to new_story_path, :class => 'contribute' do %>
-    <%= image_tag("create_guesswho.png") %>
+
+    <%= link_to new_story_path, :class => 'contribute' do %>
+    <%= image_tag "create_guesswho.png", :mouseover => "/images/logopressed_guesswho.png" %>
   <% end %>
 
   <%= yield %>
